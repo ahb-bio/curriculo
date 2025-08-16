@@ -1,0 +1,393 @@
+/* css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #2c3e50;    /* Azul Escuro (Wet Asphalt) */
+    --secondary-color: #27ae60;  /* Verde (Nebulas Green) */
+    --background-color: #ecf0f1; /* Cinza Claro (Clouds) */
+    --text-color: #34495e;       /* Cinza Azulado */
+    --header-bg: #ffffff;
+    --card-bg: #ffffff;
+    --footer-bg: var(--primary-color);
+    --footer-text: #ecf0f1;
+    --light-border: #bdc3c7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+/* Header & Navegação */
+.main-header {
+    background: var(--header-bg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--secondary-color);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+/* Seção Sobre (Hero) */
+#about {
+    background: white;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.profile-pic {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid var(--secondary-color);
+    box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+.about-text h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-text .subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Seção Formação Acadêmica */
+#academic-formation {
+    background: var(--background-color);
+}
+.formation-highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.formation-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-top: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.formation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
+}
+.formation-card .degree {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.formation-card .period {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+.formation-card .institution {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.formation-card .thesis-title {
+    font-style: italic;
+    font-size: 0.9rem;
+    border-left: 3px solid var(--light-border);
+    padding-left: 1rem;
+    margin-top: 1rem;
+}
+
+/* Seção Citações */
+#citations {
+    background: var(--primary-color);
+}
+#citations h2 {
+    color: white;
+}
+#citations h2::after {
+    background: white;
+}
+.citations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+    color: white;
+}
+.citation-card {
+    background: rgba(255,255,255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+.citation-card:hover {
+    background: rgba(255,255,255, 0.2);
+}
+.citation-card .count {
+    font-size: 3rem;
+    font-weight: 700;
+}
+.citation-card .platform {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+.citation-card .h-index {
+    font-size: 1rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+/* Seção Publicações */
+.publication-list {
+    list-style: none;
+}
+.publication-item {
+    background: var(--card-bg);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.publication-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+.publication-item .authors {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+.publication-item .details {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.publication-item .doi-link {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--secondary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.publication-item .doi-link:hover {
+    background: #219d53;
+}
+
+/* Atuação e Projetos */
+.professional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+.grid-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.grid-item ul {
+    list-style-position: inside;
+}
+.grid-item li {
+    margin-bottom: 0.5rem;
+}
+
+/* Formação Complementar */
+.complementary-courses ul {
+    list-style: none;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    column-gap: 2rem;
+}
+.complementary-courses li {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    break-inside: avoid-column;
+}
+.course-title {
+    font-weight: 700;
+}
+.institution {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* Footer */
+.main-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 3rem 0;
+}
+.footer-socials a {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+.footer-socials a:hover {
+    color: var(--secondary-color);
+}
+
+/* Animações e Responsividade */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+    .professional-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 768px) {
+    h2 { font-size: 1.8rem; }
+    .nav-links {
+        display: none; /* Simplificação para mobile, pode ser substituído por um menu hamburguer */
+    }
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+    }
+    .citations-grid {
+        grid-template-columns: 1fr;
+    }
+    .complementary-courses ul {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+}
